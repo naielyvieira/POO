@@ -23,7 +23,7 @@ public class Jogo {
         // Criação de instâncias de poderes
         Poder envenenamento = new PoderEnvenenamento();
         Poder congelamento = new PoderCongelamento();
-        Poder endurecimento = new PoderEndurecimento();
+        Poder endurecimento = new Poder_Endurecimento();
 
         // Criação de instâncias de personagens
         Zoro zoro = new Zoro("Zoro", 100, espadaEnma, envenenamento);

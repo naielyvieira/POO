@@ -50,11 +50,11 @@ class Batalha {
     public Personagem escolherOponente(int escolhaOponente) {
         switch (escolhaOponente) {
             case 1:
-                return new Zoro("Zoro", 100, new Arma("Espada Enma", 500, 80, null), new Poder());
+                return new Zoro("Zoro", 100, new Arma("Espada Enma", 500, 80, null), new Poder(null, escolhaOponente, escolhaOponente));
             case 2:
-                return new Kisame("Kisame", 100, new Arma("Samehada", 300, 60, null), new Poder());
+                return new Kisame("Kisame", 100, new Arma("Samehada", 300, 60, null), new Poder(null, escolhaOponente, escolhaOponente));
             case 3:
-                return new Lufy("Lufy", 100, new Arma("Bala De Borracha", 700, 100, "Endurecimento"), new Poder());
+                return new Lufy("Lufy", 100, new Arma("Bala De Borracha", 700, 100, "Endurecimento"), new Poder(null, escolhaOponente, escolhaOponente));
             default:
                 System.out.println("Escolha inválida. Encerrando o jogo.");
                 System.exit(0);
