@@ -4,7 +4,7 @@ public class Poder_Endurecimento extends Poder {
     public Poder_Endurecimento() {
         super("Endurecimento", 70, 90);
     }
-
+    //Metodo sobescrito, da classe base, sendo ultilizado a mesma assinatura, porém com atributos especificos
     @Override
     public String usarPoder(Personagem atacante, Personagem oponente) {
         if (atacante.temManaSuficiente(getCustoMana())) {

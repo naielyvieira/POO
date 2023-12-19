@@ -9,16 +9,16 @@ public class Jogo {
 
         // Introdução do Jogo
         System.out.println("##############################################################################\n");
-        System.out.println("\tBem-vindos ao Jogo de Luta entre Piratas!");
-        System.out.println("\tZoro, o maior espadachim do mundo e \n \tKisame, o melhor espadachim da nevoa,\n \tLufy o rei dos piratas.");
+        System.out.println("\tBem-vindos ao Jogo de Luta de One Piece!");
+        System.out.println("\tZoro, o maior espadachim do mundo.  \n \tKisame, o melhor espadachim da nevoa,\n \te Lufy o rei dos piratas.");
         System.out.println("\tCada personagem tem sua arma única e poder especial.");
         System.out.println("\tEscolha sabiamente suas ações durante a batalha para sair vitorioso!\n");
         System.out.println("##############################################################################\n");
 
         // Criação de instâncias de armas
-        Arma espadaEnma = new Arma("Espada Enma", 500, 80, null);
-        Arma samehada = new Arma("Samehada", 300, 60, null);
-        Arma balaDBorracha = new Arma("Bala De Borracha", 700, 100, "Endurecimento");
+        Arma espadaEnma = new Arma("Espada Enma", 40, 50, "Envenenamento");
+        Arma samehada = new Arma("Samehada", 30, 60, "Congelamento");
+        Arma balaDBorracha = new Arma("Bala De Borracha", 50, 30, "Endurecimento");
 
         // Criação de instâncias de poderes
         Poder envenenamento = new PoderEnvenenamento();
@@ -56,6 +56,8 @@ public class Jogo {
 
         // Exibir status inicial do personagem escolhido
         exibirStatusPersonagem(jogadorEscolhido);
+        
+
 
         // Iniciar batalha chamando o método iniciar batalha
         Batalha batalha = new Batalha();
@@ -73,4 +75,6 @@ public class Jogo {
         }
         System.out.println("-----------------------------");
     }
+
+    
 }

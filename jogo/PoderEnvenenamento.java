@@ -4,7 +4,7 @@ public class PoderEnvenenamento extends Poder {
     public PoderEnvenenamento() {
         super("Envenenamento", 20, 40);
     }
-
+    //Metodo sobescrito, da classe base, sendo ultilizado a mesma assinatura, porém com atributos especificos
     @Override
     public String usarPoder(Personagem atacante, Personagem oponente) {
         if (atacante.temManaSuficiente(getCustoMana())) {

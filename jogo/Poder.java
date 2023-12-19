@@ -24,7 +24,7 @@ class Poder {
     public int getDano() {
         return dano;
     }
-
+    //Metodo base para uso do polimorfismo, que será usado nas subclasses
     public String usarPoder(Personagem atacante, Personagem oponente) {
         if (atacante.temManaSuficiente(custoMana)) {
             System.out.println(atacante.getNome() + " usa " + nome + "!");

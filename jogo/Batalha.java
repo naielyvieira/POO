@@ -16,8 +16,14 @@ class Batalha {
         int escolhaOponente = scanner.nextInt();
         Personagem oponente = escolherOponente(escolhaOponente);
 
+        exibirStatusPersonagem(oponente);
+
         System.out.println("Você é o(a) " + jogador.getNome() + ". Seu oponente é o(a) " + oponente.getNome() + ".");
         System.out.println("\tQUE A BATALHA COMECE!\n");
+        
+        //Inicia um loop de batalha até que a vida de um dos personagens seja reduzida a zero.
+        //Dentro do loop, o jogador escolhe entre "Atacar" ou "Usar Poder".
+        //Realiza a ação escolhida, alternando entre o jogador e o oponente.
 
         while (jogador.getVida() > 0 && oponente.getVida() > 0) {
             System.out.println("Escolha sua ação, " + jogador.getNome() + "!");
@@ -50,11 +56,11 @@ class Batalha {
     public Personagem escolherOponente(int escolhaOponente) {
         switch (escolhaOponente) {
             case 1:
-                return new Zoro("Zoro", 100, new Arma("Espada Enma", 500, 80, null), new Poder(null, escolhaOponente, escolhaOponente));
+                return new Zoro("Zoro", 100, new Arma("Espada Enma", 50, 20, "Envenenamento"), new Poder("Envenenamento", escolhaOponente, escolhaOponente));
             case 2:
-                return new Kisame("Kisame", 100, new Arma("Samehada", 300, 60, null), new Poder(null, escolhaOponente, escolhaOponente));
+                return new Kisame("Kisame", 100, new Arma("Samehada", 30, 30, "Congelamento"), new Poder("Congelamento", escolhaOponente, escolhaOponente));
             case 3:
-                return new Lufy("Lufy", 100, new Arma("Bala De Borracha", 700, 100, "Endurecimento"), new Poder(null, escolhaOponente, escolhaOponente));
+                return new Lufy("Lufy", 100, new Arma("Bala De Borracha", 70, 40, "Endurecimento"), new Poder("Endurecimento", escolhaOponente, escolhaOponente));
             default:
                 System.out.println("Escolha inválida. Encerrando o jogo.");
                 System.exit(0);
@@ -62,6 +68,8 @@ class Batalha {
         }
     }
 
+    //verifica a chance do atacante e do oponente de ganhar a batalha, sendo o calculo o mesmo para os dois, usando como principio.
+    //a força e precisao.
     public void realizarAtaque(Personagem atacante, Personagem oponente) {
         Arma armaAtacante = atacante.getArma();
         Arma armaOponente = oponente.getArma();
@@ -102,6 +110,7 @@ class Batalha {
         return arma.getForca() + arma.getPrecisao();
     }
 
+    //metodo para exibir o estado da batalha
     public void exibirEstadoBatalha(Personagem jogador1, Personagem jogador2) {
         System.out.println("----- Estado da Batalha -----");
         System.out.println(jogador1.getNome() + ": Vida - " + jogador1.getVida());
@@ -109,16 +118,29 @@ class Batalha {
         System.out.println("-----------------------------");
     }
 
+    //metodo para exibir o resultado da batalha
     public void exibirResultadoBatalha(Personagem jogador1, Personagem jogador2) {
         System.out.println("----- Resultado da Batalha -----");
         if (jogador1.getVida() > 0) {
-            System.out.println(jogador1.getNome() + " venceu!");
+            System.out.println(jogador1.getNome() + " venceu!\n");
+            System.out.println("Fim da Batalha!");
         } else if (jogador2.getVida() > 0) {
-            System.out.println(jogador2.getNome() + " venceu!");
+            System.out.println(jogador2.getNome() + " venceu!\n");
+            System.out.println("Fim da Batalha!");
         } else {
             System.out.println("Empate!");
         }
         System.out.println("-------------------------------");
+    }
+
+    public static void exibirStatusPersonagem(Personagem jogadorOponente) {
+        System.out.println("----- Status de " + jogadorOponente.getNome() + " -----");
+        System.out.println("Vida: " + jogadorOponente.getVida());
+        System.out.println("Arma: " + jogadorOponente.getArma().getNome());
+        if (jogadorOponente.getPoder() != null) {
+            System.out.println("Poder: " + jogadorOponente.getPoder().getNome());
+        }
+        System.out.println("-----------------------------");
     }
 }
 

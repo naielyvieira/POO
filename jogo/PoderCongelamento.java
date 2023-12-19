@@ -4,7 +4,7 @@ public class PoderCongelamento extends Poder {
     public PoderCongelamento() {
         super("Congelamento", 30, 50);
     }
-
+//Metodo sobescrito, da classe base, sendo ultilizado a mesma assinatura, porém com atributos especificos
     @Override
     public String usarPoder(Personagem atacante, Personagem oponente) {
         if (atacante.temManaSuficiente(getCustoMana())) {
